@@ -10,7 +10,7 @@ const port = process.env.PORT || 8080;
 const app = express(); // Create an express app
 
 app.use(cors({
-  origin: "https://auction-web-10k5.onrender.com", // Allow requests from this origin
+  origin: "https://http://localhost:3000", // Allow requests from this origin
 }));
 
 server.use(middlewares);

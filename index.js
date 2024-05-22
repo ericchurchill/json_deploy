@@ -10,5 +10,4 @@ app.use(cors({
     }))
 server.use(middlewares);
 server.use(router);
-server.use(cors());
 server.listen(port);

@@ -9,9 +9,7 @@ const port = process.env.PORT || 8080;
 
 const app = express(); // Create an express app
 
-app.use(cors({
-  origin: "https://http://localhost:3000", // Allow requests from this origin
-}));
+app.use(cors());
 
 server.use(middlewares);
 server.use(router);

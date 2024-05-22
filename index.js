@@ -1,13 +1,22 @@
-const jsonServer = require("json-server"); // importing json-server library
+const jsonServer = require("json-server");
+const express = require("express"); // Import express
+const cors = require("cors");
+
 const server = jsonServer.create();
 const router = jsonServer.router("db.json");
 const middlewares = jsonServer.defaults();
-const port = process.env.PORT || 8080; //  chose port from here like 8080, 3001
-const cors = require (‘cors’)
+const port = process.env.PORT || 8080;
+
+const app = express(); // Create an express app
 
 app.use(cors({
-      origin: “https://auction-web-10k5.onrender.com”,
-    }))
+  origin: "https://auction-web-10k5.onrender.com", // Allow requests from this origin
+}));
+
 server.use(middlewares);
 server.use(router);
-server.listen(port);
+
+app.use(server); // Mount json-server on express app
+app.listen(port, () => {
+  console.log(`JSON Server is running on port ${port}`);
+});
